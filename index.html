@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carosello Multi Array</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    
+    <div id="root">
+        <div class="container">
+            <!-- Slider -->
+            <div class="slider">
+                <!-- Main Image Container -->
+                <div class="main_images_container">
+                    <div class="single_image active">
+                        <img :src="sliders[activeSlide].image" :alt="sliders[activeSlide].title">
+    
+                        <div class="image_description">
+                            <h2>{{ sliders[activeSlide].title }}</h2>
+                            <p>{{ sliders[activeSlide].text }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Mian Image Container -->
+    
+                <!-- Thumbs -->
+                <div class="thumbs">
+                    <div class="arrow top">
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <div @click="nextSlide" class="arrow bottom">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <!-- Single Thumbs -->
+                    <div v-for="element, index in sliders" class="single_thumbs" :class="{ 'active': index === activeSlide }">
+                        <img :src="element.image" :alt="element.title">
+                    </div>
+                    <!-- End Single Thumbs -->
+                </div>
+                <!-- End Thumbs -->
+            </div>
+            <!-- End Slider -->
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
