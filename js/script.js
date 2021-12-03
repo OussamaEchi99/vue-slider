@@ -1,5 +1,7 @@
 // Partendo dal markup della versione svolta in js plain,
 // rifare lo slider ma questa volta usando Vue.
+// Bonus:
+// 1- al click su una thumb, visualizzare in grande l'immagine corrispondente
 
 Vue.config.devtools = true;
 
@@ -34,7 +36,9 @@ const app = new Vue(
                     title: 'Paradise',
                     text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam'
                 }
-            ]
+            ],
+            timeSlideChange: 0,
+            timeSlideChange: null
         },
         methods: {
             nextSlide: function() {
@@ -50,6 +54,9 @@ const app = new Vue(
                 } else {
                     this.activeSlide = this.sliders.length - 1;
                 }
+            },
+            thisSlide: function(clickThisSlide) {
+                this.activeSlide = clickThisSlide;
             }
         }
     }

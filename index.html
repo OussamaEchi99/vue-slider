@@ -39,7 +39,7 @@
                     </div>
 
                     <!-- Single Thumbs -->
-                    <div v-for="element, index in sliders" class="single_thumbs" :class="{ 'active': index === activeSlide }">
+                    <div @click="thisSlide(index)" v-for="element, index in sliders" class="single_thumbs" :class="{ 'active': index === activeSlide }">
                         <img :src="element.image" :alt="element.title">
                     </div>
                     <!-- End Single Thumbs -->
