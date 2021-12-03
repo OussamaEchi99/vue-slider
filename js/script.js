@@ -1,3 +1,6 @@
+// Partendo dal markup della versione svolta in js plain,
+// rifare lo slider ma questa volta usando Vue.
+
 Vue.config.devtools = true;
 
 const app = new Vue(
@@ -35,10 +38,17 @@ const app = new Vue(
         },
         methods: {
             nextSlide: function() {
-                if ( this.activeSlide > this.sliders.lenght - 1 ) {
+                if ( this.activeSlide < this.sliders.length - 1 ) {
                     this.activeSlide++;
                 } else {
                     this.activeSlide = 0;
+                }
+            },
+            previousSlide: function() {
+                if ( this.activeSlide > 0 ) {
+                    this.activeSlide--;
+                } else {
+                    this.activeSlide = this.sliders.length - 1;
                 }
             }
         }
